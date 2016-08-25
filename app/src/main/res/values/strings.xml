@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">SlimQuest</string>
+    <string name="facebook_app_id">1766231930296139</string>
+    <integer name="com_vk_sdk_AppId">5591170</integer>
+    <string name="twitter_consumer_key">8Gy3OKQMbKJ15BH0BferBNHEj</string>
+    <string name="twitter_consumer_secret">dSUHvkbS8xCwoS6lozPAFgDtIuKhTGkRW1OYXJqxBCMgKMyDX4</string>
+    <string name="linkedin_consumer_key">7523ssry5qk7rl</string>
+    <string name="linkedin_consumer_secret">sFyJf0ZW1lp31aGU</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_name">Fullname</string>
+    <string name="btn_login">LOGIN</string>
+    <string name="btn_register">REGISTER</string>
+    <string name="btn_link_to_register">Not a member? Sign up now.</string>
+    <string name="btn_link_to_login">Already registred! Login Me.</string>
+    <string name="welcome">Welcome</string>
+    <string name="btn_begingamet">Begin Game</string>
+    <string name="name">Fullname</string>
+
+</resources>
