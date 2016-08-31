@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.onesignal.OneSignal;
+
 public class MainActivity extends ActionBarActivity implements FragmentManager.OnBackStackChangedListener {
     public static final String SOCIAL_NETWORK_TAG = "SocialIntegrationMain.SOCIAL_NETWORK_TAG";
     private static ProgressDialog pd;
@@ -19,6 +21,7 @@ public class MainActivity extends ActionBarActivity implements FragmentManager.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        OneSignal.startInit(this).init();
         context = this;
         getSupportFragmentManager().addOnBackStackChangedListener(this);
         homeAsUpByBackStack();

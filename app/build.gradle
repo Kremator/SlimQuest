@@ -6,6 +6,9 @@ android {
 
     defaultConfig {
         applicationId "com.example.stas.slimquest"
+        manifestPlaceholders = [manifestApplicationId: "${applicationId}",
+                                onesignal_app_id: "aec62225-ec80-44de-82e4-d5fa8c9659cb",
+                                onesignal_google_project_number: "683970010208"]
         minSdkVersion 15
         targetSdkVersion 24
         versionCode 1
@@ -30,5 +33,7 @@ dependencies {
     compile 'com.github.asne:asne-twitter:0.3.3'
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.mcxiaoke.volley:library-aar:1.0.1'
-   
+    compile 'com.onesignal:OneSignal:3.+@aar'
+
+
 }
