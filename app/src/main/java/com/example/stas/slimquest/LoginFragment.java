@@ -38,7 +38,7 @@ import java.util.Map;
  */
 public class LoginFragment extends Fragment implements SocialNetworkManager.OnInitializationCompleteListener, OnLoginCompleteListener {
     public static SocialNetworkManager mSocialNetworkManager;
-      EditText name, password;
+    EditText name, password;
 
     /**
      * SocialNetwork Ids in ASNE:
@@ -62,6 +62,7 @@ public class LoginFragment extends Fragment implements SocialNetworkManager.OnIn
     private ProgressDialog pDialog;
     private SessionManager session;
     private SQLiteHandler db;
+
     public LoginFragment() {
     }
 
@@ -91,9 +92,8 @@ public class LoginFragment extends Fragment implements SocialNetworkManager.OnIn
             // User is already logged in. Take him to main activity
             Intent intent = new Intent(getActivity(), GameStart.class);
             startActivity(intent);
-//            finish();
-        }
 
+        }
         // Login button Click Event
         btnLogin.setOnClickListener(new View.OnClickListener() {
 
@@ -122,7 +122,6 @@ public class LoginFragment extends Fragment implements SocialNetworkManager.OnIn
                 Intent i = new Intent(getActivity(),
                         RegisterActivity.class);
                 startActivity(i);
-//                finish();
             }
         });
 
@@ -146,27 +145,6 @@ public class LoginFragment extends Fragment implements SocialNetworkManager.OnIn
         String LINKEDIN_CONSUMER_SECRET = getActivity().getString(R.string.linkedin_consumer_secret);
         String LINKEDIN_CALLBACK_URL = "https://asneTutorial";
 
-//        Button login = (Button) rootView.findViewById(R.id.main_login);
-//        login.setOnClickListener(new View.OnClickListener()
-//        {
-//            @Override
-//            public void onClick(View v)
-//            {
-//                Name = name.getText().toString();
-//                Password = password.getText().toString();
-//                BackGround b = new BackGround();
-//                b.execute(Name, Password);
-//            }
-//        });
-//        Button register = (Button) rootView.findViewById(R.id.main_register);
-//        register.setOnClickListener(new View.OnClickListener()
-//        {
-//            @Override
-//            public void onClick(View v)
-//            {
-//                startActivity(new Intent(getActivity(),Register.class));
-//            }
-//        });
         //Chose permissions
         ArrayList<String> fbScope = new ArrayList<String>();
         fbScope.addAll(Arrays.asList("public_profile, email, user_friends"));
@@ -210,9 +188,10 @@ public class LoginFragment extends Fragment implements SocialNetworkManager.OnIn
         }
         return rootView;
     }
+
     /**
      * function to verify login details in mysql db
-     * */
+     */
     private void checkLogin(final String email, final String password) {
         // Tag used to cancel the request
         String tag_string_req = "req_login";
@@ -373,7 +352,6 @@ public class LoginFragment extends Fragment implements SocialNetworkManager.OnIn
     @Override
     public void onLoginSuccess(int networkId) {
         MainActivity.hideProgress();
-//        startProfile(networkId);
         Intent intent = new Intent(getActivity(), GameStart.class);
         startActivity(intent);
     }
@@ -384,11 +362,5 @@ public class LoginFragment extends Fragment implements SocialNetworkManager.OnIn
         Toast.makeText(getActivity(), "ERROR: " + errorMessage, Toast.LENGTH_LONG).show();
     }
 
-//    private void startProfile(int networkId) {
-//        ProfileFragment profile = ProfileFragment.newInstannce(networkId);
-//        getActivity().getSupportFragmentManager().beginTransaction()
-//                .addToBackStack("profile")
-//                .replace(R.id.container, profile)
-//                .commit();
-//    }
+
 }
