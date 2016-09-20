@@ -131,8 +131,10 @@ public class LoginFragment extends Fragment implements SocialNetworkManager.OnIn
         facebook = (Button) rootView.findViewById(R.id.facebook);
         facebook.setOnClickListener(loginClick);
         twitter = (Button) rootView.findViewById(R.id.twitter);
+        twitter.setVisibility(View.GONE);
         twitter.setOnClickListener(loginClick);
         linkedin = (Button) rootView.findViewById(R.id.linkedin);
+        linkedin.setVisibility(View.GONE);
         linkedin.setOnClickListener(loginClick);
         googleplus = (Button) rootView.findViewById(R.id.googleplus);
         googleplus.setOnClickListener(loginClick);

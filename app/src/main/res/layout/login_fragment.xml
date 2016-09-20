@@ -76,6 +76,15 @@
         android:textColor="#ffffffff" />
 
     <Button
+        android:id="@+id/googleplus"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="#D34836"
+        android:text="Login via GooglePlus"
+        android:textColor="#ffffffff" />
+
+    <Button
         android:id="@+id/twitter"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -95,13 +104,4 @@
         android:text="Login via LinkedIn"
         android:textColor="#ffffffff" />
 
-    <Button
-        android:id="@+id/googleplus"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="8dp"
-        android:background="#D34836"
-        android:text="Login via GooglePlus"
-        android:textColor="#ffffffff" />
 </LinearLayout>

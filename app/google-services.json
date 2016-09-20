@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "683970010208",
+    "firebase_url": "https://slimquest-140711.firebaseio.com",
+    "project_id": "slimquest-140711",
+    "storage_bucket": "slimquest-140711.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:683970010208:android:330ca7c244928930",
+        "android_client_info": {
+          "package_name": "com.example.stas.slimquest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "683970010208-mnrujngtr3ucqdkih53qe14h87brehsh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDC5RA_gvwx-Y6_sMgjqd-9y5pSpjXN4SE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

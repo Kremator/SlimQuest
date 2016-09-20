@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.View;
 
@@ -22,7 +23,7 @@ import java.util.Calendar;
 /**
  * Created by Stas on 25.08.2016.
  */
-public class GameBegin extends Activity implements View.OnClickListener {
+public class GameBegin extends AppCompatActivity implements View.OnClickListener {
     private SeekBar seekBar;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor spEditor;
@@ -48,6 +49,26 @@ public class GameBegin extends Activity implements View.OnClickListener {
     private Integer bu18 = 0;
     private Integer bu19 = 0;
     private Integer bu20 = 0;
+    private int point1=0;
+    private int point2=0;
+    private int point3=0;
+    private int point4=0;
+    private int point5=0;
+    private int point6=0;
+    private int point7=0;
+    private int point8=0;
+    private int point9=0;
+    private int point10=0;
+    private int point11=0;
+    private int point12=0;
+    private int point13=0;
+    private int point14=0;
+    private int point15=0;
+    private int point16=0;
+    private int point17=0;
+    private int point18=0;
+    private int point19=0;
+    private int point20=0;
     public static final String DATE1 = "date1";
     public static final String DATE2 = "date2";
     public static final String DATE3 = "date3";
@@ -68,6 +89,26 @@ public class GameBegin extends Activity implements View.OnClickListener {
     public static final String DATE18 = "date18";
     public static final String DATE19 = "date19";
     public static final String DATE20 = "date20";
+    public static final String POINT1="point1";
+    public static final String POINT2="point2";
+    public static final String POINT3="point3";
+    public static final String POINT4="point4";
+    public static final String POINT5="point5";
+    public static final String POINT6="point6";
+    public static final String POINT7="point7";
+    public static final String POINT8="point8";
+    public static final String POINT9="point9";
+    public static final String POINT10="point10";
+    public static final String POINT11="point11";
+    public static final String POINT12="point12";
+    public static final String POINT13="point13";
+    public static final String POINT14="point14";
+    public static final String POINT15="point15";
+    public static final String POINT16="point16";
+    public static final String POINT17="point17";
+    public static final String POINT18="point18";
+    public static final String POINT19="point19";
+    public static final String POINT20="point20";
     public static final String EXP = "exp";
     public static final String MyPREFERENCESS = "MyPrefss";
 
@@ -117,8 +158,54 @@ public class GameBegin extends Activity implements View.OnClickListener {
         b18.setOnClickListener(this);
         b19.setOnClickListener(this);
         b20.setOnClickListener(this);
-    }
+        sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
+        bu1 = sharedPreferences.getInt(DATE1, -1);
+        bu2 = sharedPreferences.getInt(DATE2, -1);
+        bu3 = sharedPreferences.getInt(DATE3, -1);
+        bu4 = sharedPreferences.getInt(DATE4, -1);
+        point1 = sharedPreferences.getInt(POINT1, -1);
+        point2 = sharedPreferences.getInt(POINT2, -1);
+        point3 = sharedPreferences.getInt(POINT3, -1);
+        point4 = sharedPreferences.getInt(POINT4, -1);
+        point5 = sharedPreferences.getInt(POINT5, -1);
+        point6 = sharedPreferences.getInt(POINT6, -1);
+        point7 = sharedPreferences.getInt(POINT7, -1);
+        point8 = sharedPreferences.getInt(POINT8, -1);
+        point9 = sharedPreferences.getInt(POINT9, -1);
+        point10 = sharedPreferences.getInt(POINT10, -1);
+        point11 = sharedPreferences.getInt(POINT11, -1);
+        point12 = sharedPreferences.getInt(POINT12, -1);
+        point13 = sharedPreferences.getInt(POINT13, -1);
+        point14 = sharedPreferences.getInt(POINT14, -1);
+        point15 = sharedPreferences.getInt(POINT15, -1);
+        point16 = sharedPreferences.getInt(POINT16, -1);
+        point17 = sharedPreferences.getInt(POINT17, -1);
+        point18 = sharedPreferences.getInt(POINT18, -1);
+        point19 = sharedPreferences.getInt(POINT19, -1);
+        point20 = sharedPreferences.getInt(POINT20, -1);
+        chouseImage(b1,point1);
+        chouseImage(b2,point2);
+        chouseImage(b3,point3);
+        chouseImage(b4,point4);
+        chouseImage(b5,point5);
+        chouseImage(b6,point6);
+        chouseImage(b7,point7);
+        chouseImage(b8,point8);
+        chouseImage(b9,point9);
+        chouseImage(b10,point10);
+        chouseImage(b11,point11);
+        chouseImage(b12,point12);
+        chouseImage(b13,point13);
+        chouseImage(b14,point14);
+        chouseImage(b15,point15);
+        chouseImage(b16,point16);
+        chouseImage(b17,point17);
+        chouseImage(b18,point18);
+        chouseImage(b19,point19);
+        chouseImage(b20,point20);
 
+
+            }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -210,13 +297,13 @@ public class GameBegin extends Activity implements View.OnClickListener {
     public boolean checkDate(int date, int bu) {
 
 
-        boolean checktime = false;
+        boolean checkdate = false;
 
         if (date != bu) {
-            checktime = true;
+            checkdate = true;
         }
 
-        return checktime;
+        return checkdate;
     }
 
 
@@ -235,265 +322,390 @@ public class GameBegin extends Activity implements View.OnClickListener {
         Integer date = new Integer(hm);
         switch (id) {
             case R.id.b1:
-                if (checkDate(date, bu1)) {
-                    breakfast(b1);
-                    saveDate(bu1, DATE1);
-                    sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
-                    bu1 = sharedPreferences.getInt(DATE1, -1);
+                if(checkTime(800,1000)) {
+                    if (checkDate(date, bu1)) {
+                        breakfast(b1);
+                        point1=breakfast(b1);
+                        saveDate(bu1, DATE1);
+                        savePoint(POINT1,point1);
+                        sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
+                        bu1 = sharedPreferences.getInt(DATE1, -1);
+
+                    }
                 }
                 break;
             case R.id.b2:
-                if (checkDate(date, bu2)) {
-                    breakfast(b2);
-                    saveDate(bu2, DATE2);
-                    sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
-                    bu2 = sharedPreferences.getInt(DATE2, -1);
+                if(checkTime(800,1000)) {
+                    if (checkDate(date, bu2)) {
+                        breakfast(b2);
+                        point2= breakfast(b2);
+                        saveDate(bu2, DATE2);
+                        savePoint(POINT2,point2);
+                        sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
+                        bu2 = sharedPreferences.getInt(DATE2, -1);
+
+                    }
                 }
                 break;
             case R.id.b3:
-                if (checkDate(date, bu3)) {
-                    breakfast(b3);
-                    saveDate(bu3, DATE3);
-                    sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
-                    bu3 = sharedPreferences.getInt(DATE3, -1);
+                if(checkTime(800,1000)) {
+                    if (checkDate(date, bu3)) {
+                        breakfast(b3);
+                        point3= breakfast(b3);
+                        saveDate(bu3, DATE3);
+                        savePoint(POINT3,point3);
+                        sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
+                        bu3 = sharedPreferences.getInt(DATE3, -1);
+
+                    }
                 }
                 break;
             case R.id.b4:
-                if (checkDate(date, bu4)) {
-                    breakfast(b4);
-                    saveDate(bu4, DATE4);
-                    sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
-                    bu4 = sharedPreferences.getInt(DATE4, -1);
+                if(checkTime(800,1000)) {
+                    if (checkDate(date, bu4)) {
+                        breakfast(b4);
+                        point4= breakfast(b4);
+                        saveDate(bu4, DATE4);
+                        savePoint(POINT4,point4);
+                        sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
+                        bu4 = sharedPreferences.getInt(DATE4, -1);
+
+                    }
                 }
                 break;
             case R.id.b5:
-                if (checkDate(date, bu5)) {
-                    brunch(b5);
-                    saveDate(bu5, DATE5);
-                    sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
-                    bu5 = sharedPreferences.getInt(DATE5, -1);
+                if(checkTime(1001,1200)) {
+                    if (checkDate(date, bu5)) {
+                        brunch(b5);
+                        point5=  brunch(b5);
+                        savePoint(POINT5,point5);
+                        saveDate(bu5, DATE5);
+                        sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
+                        bu5 = sharedPreferences.getInt(DATE5, -1);
+                    }
                 }
                 break;
             case R.id.b6:
-                if (checkDate(date, bu6)) {
-                    brunch(b6);
-                    saveDate(bu6, DATE6);
-                    sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
-                    bu6 = sharedPreferences.getInt(DATE6, -1);
+                if(checkTime(1001,1200)) {
+                    if (checkDate(date, bu6)) {
+                        brunch(b6);
+                        point6=  brunch(b6);
+                        savePoint(POINT6,point6);
+                        saveDate(bu6, DATE6);
+                        sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
+                        bu6 = sharedPreferences.getInt(DATE6, -1);
+                    }
                 }
                 break;
             case R.id.b7:
-                if (checkDate(date, bu7)) {
-                    brunch(b7);
-                    saveDate(bu7, DATE7);
-                    sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
-                    bu7 = sharedPreferences.getInt(DATE7, -1);
+                if(checkTime(1001,1200)) {
+                    if (checkDate(date, bu7)) {
+                        brunch(b7);
+                        point7=  brunch(b7);
+                        savePoint(POINT7,point7);
+                        saveDate(bu7, DATE7);
+                        sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
+                        bu7 = sharedPreferences.getInt(DATE7, -1);
+                    }
                 }
                 break;
             case R.id.b8:
-                if (checkDate(date, bu8)) {
-                    brunch(b8);
-                    saveDate(bu8, DATE8);
-                    sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
-                    bu8 = sharedPreferences.getInt(DATE8, -1);
+                if(checkTime(1001,1200)) {
+                    if (checkDate(date, bu8)) {
+                        brunch(b8);
+                        point8=  brunch(b8);
+                        savePoint(POINT8,point8);
+                        saveDate(bu8, DATE8);
+                        sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
+                        bu8 = sharedPreferences.getInt(DATE8, -1);
+                    }
                 }
                 break;
             case R.id.b9:
-                if (checkDate(date, bu9)) {
-                lunch(b9);
-                saveDate(bu9,DATE9);
-                    sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
-                    bu9 = sharedPreferences.getInt(DATE9, -1);
+                if(checkTime(1201,1400)) {
+                    if (checkDate(date, bu9)) {
+                        lunch(b9);
+                        point9=lunch(b9);
+                        savePoint(POINT9,point9);
+                        saveDate(bu9, DATE9);
+                        sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
+                        bu9 = sharedPreferences.getInt(DATE9, -1);
+                    }
                 }
                 break;
             case R.id.b10:
-                if (checkDate(date, bu10)) {
-                lunch(b10);
-                saveDate(bu10,DATE10);
-                    sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
-                    bu10 = sharedPreferences.getInt(DATE10, -1);
+                if(checkTime(1201,1400)) {
+                    if (checkDate(date, bu10)) {
+                        lunch(b10);
+                        point10= lunch(b10);
+                        savePoint(POINT10,point10);
+                        saveDate(bu10, DATE10);
+                        sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
+                        bu10 = sharedPreferences.getInt(DATE10, -1);
+                    }
                 }
                 break;
             case R.id.b11:
-                if (checkDate(date, bu11)) {
-                lunch(b11);
-                saveDate(bu11,DATE11);
-                sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
-                bu11 = sharedPreferences.getInt(DATE11, -1);
-        }
+                if(checkTime(1201,1400)) {
+                    if (checkDate(date, bu11)) {
+                        lunch(b11);
+                        point11= lunch(b11);
+                        savePoint(POINT11,point11);
+                        saveDate(bu11, DATE11);
+                        sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
+                        bu11 = sharedPreferences.getInt(DATE11, -1);
+                    }
+                }
                 break;
             case R.id.b12:
-                if (checkDate(date, bu12)) {
-                lunch(b12);
-                saveDate(bu12,DATE12);
-                sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
-                bu12 = sharedPreferences.getInt(DATE12, -1);
-        }
+                if(checkTime(1201,1400)) {
+                    if (checkDate(date, bu12)) {
+                        lunch(b12);
+                        point12= lunch(b12);
+                        savePoint(POINT12,point12);
+                        saveDate(bu12, DATE12);
+                        sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
+                        bu12 = sharedPreferences.getInt(DATE12, -1);
+                    }
+                }
                 break;
             case R.id.b13:
-                if (checkDate(date, bu13)) {
-                afternoonSnack(b13);
-                saveDate(bu13,DATE13);
-                sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
-                bu13 = sharedPreferences.getInt(DATE13, -1);
-        }
+                if(checkTime(1401,1700)) {
+                    if (checkDate(date, bu13)) {
+                        afternoonSnack(b13);
+                        point13=  afternoonSnack(b13);
+                        savePoint(POINT13,point13);
+                        saveDate(bu13, DATE13);
+                        sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
+                        bu13 = sharedPreferences.getInt(DATE13, -1);
+                    }
+                }
                 break;
             case R.id.b14:
-                if (checkDate(date, bu14)) {
-                afternoonSnack(b14);
-                saveDate(bu14,DATE14);
-                    sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
-                    bu14 = sharedPreferences.getInt(DATE14, -1);
+                if(checkTime(1401,1700)) {
+                    if (checkDate(date, bu14)) {
+                        afternoonSnack(b14);
+                        point14=  afternoonSnack(b14);
+                        savePoint(POINT14,point14);
+                        saveDate(bu14, DATE14);
+                        sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
+                        bu14 = sharedPreferences.getInt(DATE14, -1);
+                    }
                 }
                 break;
             case R.id.b15:
-                if (checkDate(date, bu15)) {
-                afternoonSnack(b15);
-                saveDate(bu15,DATE15);
-                sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
-                bu15 = sharedPreferences.getInt(DATE15, -1);
-        }
+                if(checkTime(1401,1700)) {
+                    if (checkDate(date, bu15)) {
+                        afternoonSnack(b15);
+                        point15=  afternoonSnack(b15);
+                        savePoint(POINT15,point15);
+                        saveDate(bu15, DATE15);
+                        sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
+                        bu15 = sharedPreferences.getInt(DATE15, -1);
+                    }
+                }
                 break;
             case R.id.b16:
-                if (checkDate(date, bu16)) {
-                afternoonSnack(b16);
-                saveDate(bu16,DATE16);
-                    sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
-                    bu16 = sharedPreferences.getInt(DATE16, -1);
+                if(checkTime(1401,1700)) {
+                    if (checkDate(date, bu16)) {
+                        afternoonSnack(b16);
+                        point16=  afternoonSnack(b16);
+                        savePoint(POINT16,point16);
+                        saveDate(bu16, DATE16);
+                        sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
+                        bu16 = sharedPreferences.getInt(DATE16, -1);
+                    }
                 }
                 break;
             case R.id.b17:
-                if (checkDate(date, bu17)) {
-                dinner(b17);
-                saveDate(bu17,DATE17);
-                sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
-                bu17 = sharedPreferences.getInt(DATE17, -1);
-        }
+                if(checkTime(1701,2000)) {
+                    if (checkDate(date, bu17)) {
+                        dinner(b17);
+                        point17= dinner(b17);
+                        savePoint(POINT17,point17);
+                        saveDate(bu17, DATE17);
+                        sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
+                        bu17 = sharedPreferences.getInt(DATE17, -1);
+                    }
+                }
                 break;
             case R.id.b18:
-                if (checkDate(date, bu18)) {
-                dinner(b18);
-                saveDate(bu18,DATE18);
-                    sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
-                    bu18 = sharedPreferences.getInt(DATE18, -1);
+                if(checkTime(1701,2000)) {
+                    if (checkDate(date, bu18)) {
+                        dinner(b18);
+                        point18= dinner(b18);
+                        savePoint(POINT18,point18);
+                        saveDate(bu18, DATE18);
+                        sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
+                        bu18 = sharedPreferences.getInt(DATE18, -1);
+                    }
                 }
                 break;
             case R.id.b19:
-                if (checkDate(date, bu19)) {
-                dinner(b19);
-                saveDate(bu19,DATE19);
-                    sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
-                    bu19 = sharedPreferences.getInt(DATE19, -1);
+                if(checkTime(1701,2000)) {
+                    if (checkDate(date, bu19)) {
+                        dinner(b19);
+                        point19= dinner(b19);
+                        savePoint(POINT19,point19);
+                        saveDate(bu19, DATE19);
+                        sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
+                        bu19 = sharedPreferences.getInt(DATE19, -1);
+                    }
                 }
                 break;
             case R.id.b20:
-                if (checkDate(date, bu20)) {
-                dinner(b20);
-                saveDate(bu20,DATE20);
-                    sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
-                    bu20 = sharedPreferences.getInt(DATE20, -1);
+                if(checkTime(1701,2000)) {
+                    if (checkDate(date, bu20)) {
+                        dinner(b20);
+                        point20= dinner(b20);
+                        savePoint(POINT20,point20);
+                        saveDate(bu20, DATE20);
+                        sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
+                        bu20 = sharedPreferences.getInt(DATE20, -1);
+                    }
                 }
                 break;
         }
     }
+public void chouseImage(ImageButton button,int number){
 
-    public void breakfast(ImageButton button) {
-        if (checkTime(800, 830)) {
+    if(number==4){
+        button.setImageResource(R.drawable.full);
+    }
+    if(number==2){
+        button.setImageResource(R.drawable.half);
+    }
+    if(number==1){
+        button.setImageResource(R.drawable.fourth);
+    }
+    if(number==0){
+        button.setImageResource(R.drawable.emty);
+    }
+}
+    public void savePoint(String key_point,int point){
+        sharedPreferences = getSharedPreferences(MyPREFERENCESS, Context.MODE_PRIVATE);
+        spEditor = sharedPreferences.edit();
+        spEditor.putInt(key_point, point);
+        spEditor.commit();
+    }
+    public int breakfast(ImageButton button) {
+        if (checkTime(800,830)) {
             button.setImageResource(R.drawable.full);
             seekBar.setProgress(seekBar.getProgress() + 4);
             saveProgress();
+               return 4;
         } else if (checkTime(831, 930)) {
             button.setImageResource(R.drawable.half);
             seekBar.setProgress(seekBar.getProgress() + 2);
             saveProgress();
+            return 2;
         } else if (checkTime(931, 1000)) {
             button.setImageResource(R.drawable.fourth);
             seekBar.setProgress(seekBar.getProgress() + 1);
             saveProgress();
+            return 1;
         } else {
             button.setImageResource(R.drawable.emty);
             seekBar.setProgress(seekBar.getProgress() + 0);
             saveProgress();
+           return 0;
         }
     }
 
-    public void brunch(ImageButton button) {
+    public int brunch(ImageButton button) {
         if (checkTime(1001, 1030)) {
             button.setImageResource(R.drawable.full);
             seekBar.setProgress(seekBar.getProgress() + 4);
             saveProgress();
+            return 4;
         } else if (checkTime(1031, 1130)) {
             button.setImageResource(R.drawable.half);
             seekBar.setProgress(seekBar.getProgress() + 2);
             saveProgress();
+            return 2;
         } else if (checkTime(1131, 1200)) {
             button.setImageResource(R.drawable.fourth);
             seekBar.setProgress(seekBar.getProgress() + 1);
             saveProgress();
+            return 1;
         } else {
             button.setImageResource(R.drawable.emty);
             seekBar.setProgress(seekBar.getProgress() + 0);
             saveProgress();
+            return 0;
         }
     }
 
-    public void lunch(ImageButton button) {
+    public int lunch(ImageButton button) {
         if (checkTime(1201, 1230)) {
             button.setImageResource(R.drawable.full);
             seekBar.setProgress(seekBar.getProgress() + 4);
             saveProgress();
+            return 4;
         } else if (checkTime(1231, 1330)) {
             button.setImageResource(R.drawable.half);
             seekBar.setProgress(seekBar.getProgress() + 2);
             saveProgress();
+            return 2;
         } else if (checkTime(1331, 1400)) {
             button.setImageResource(R.drawable.fourth);
             seekBar.setProgress(seekBar.getProgress() + 1);
             saveProgress();
+            return 1;
         } else {
             button.setImageResource(R.drawable.emty);
             seekBar.setProgress(seekBar.getProgress() + 0);
             saveProgress();
+            return 0;
         }
     }
 
-    public void afternoonSnack(ImageButton button) {
+    public int afternoonSnack(ImageButton button) {
         if (checkTime(1401, 1430)) {
             button.setImageResource(R.drawable.full);
             seekBar.setProgress(seekBar.getProgress() + 4);
             saveProgress();
+            return 4;
         } else if (checkTime(1431, 1530)) {
             button.setImageResource(R.drawable.half);
             seekBar.setProgress(seekBar.getProgress() + 2);
             saveProgress();
+            return 2;
         } else if (checkTime(1531, 1700)) {
             button.setImageResource(R.drawable.fourth);
             seekBar.setProgress(seekBar.getProgress() + 1);
             saveProgress();
+            return 1;
         } else {
             button.setImageResource(R.drawable.emty);
             seekBar.setProgress(seekBar.getProgress() + 0);
             saveProgress();
+            return 0;
         }
     }
 
-    public void dinner(ImageButton button) {
+    public int dinner(ImageButton button) {
         if (checkTime(1701, 1730)) {
             button.setImageResource(R.drawable.full);
             seekBar.setProgress(seekBar.getProgress() + 4);
             saveProgress();
+            return 4;
         } else if (checkTime(1731, 1830)) {
             button.setImageResource(R.drawable.half);
             seekBar.setProgress(seekBar.getProgress() + 2);
             saveProgress();
+            return 2;
+
         } else if (checkTime(1831, 2000)) {
             button.setImageResource(R.drawable.fourth);
             seekBar.setProgress(seekBar.getProgress() + 1);
             saveProgress();
+            return 1;
         } else {
             button.setImageResource(R.drawable.emty);
             seekBar.setProgress(seekBar.getProgress() + 0);
             saveProgress();
+            return 0;
         }
     }
 
